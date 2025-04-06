@@ -1,0 +1,99 @@
+.span {
+    width: 60px;
+    color: #ffff;
+    height: 40px;
+    border-radius: 4px;
+    background: #DB4444;
+    top: 10px;
+    left: 10px;
+}
+
+.parent {
+    position: relative;
+    /* ضروري لتحديد المرجع للعناصر المطلقة */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* يمنع خروج العناصر */
+}
+
+.icons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 10px;
+    /* مسافة بين الأيقونات */
+    opacity: 0;
+    /* إخفاء الأيقونات افتراضيًا */
+    transition: opacity 0.3s ease-in-out;
+}
+
+.parent:hover .icons {
+    opacity: 1;
+    /* عند تمرير الماوس، تظهر الأيقونات */
+}
+
+.icons p {
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.icons p:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* تعديل للأجهزة الصغيرة */
+@media (max-width: 576px) {
+    .icons {
+        top: 70%;
+        /* رفع الأيقونات لعدم تداخلها مع النص */
+        left: 50%;
+        transform: translate(-50%, -50%);
+        flex-direction: row;
+        /* ضمان عدم تداخل الأيقونات */
+        gap: 5px;
+    }
+
+    .icons p {
+        padding: 8px;
+        /* تصغير حجم الأيقونات */
+        font-size: 14px;
+    }
+
+    .parent {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .img {
+        width: 100%;
+        /* لجعل الصورة تستجيب لحجم الشاشة */
+        height: auto;
+    }
+}
+
+
+.cart {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+}
+
+.image:hover .cart {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.cat:hover {
+    background-color: #DB4444 !important;
+    color: #FAFAFA !important;
+}
